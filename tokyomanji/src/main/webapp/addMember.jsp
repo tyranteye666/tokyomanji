@@ -52,6 +52,12 @@
 						    <option class="form-control" value="6th Division Vice Captain">6th Division Vice Captain</option>
 						    <option class="form-control" value="6th Division Member">6th Division Member</option>
 						  </select>
+						  
+						 <label>Has Tattoo:</label><br/>
+						  <select id="tattoo" name="tattoo">
+						  	<option class="form-control" value="Yes">Yes</option>
+						  	<option class="form-control" value="No">No</option>
+						  </select>
 						 						
  						<br/><br/><input type="submit" value="Submit"/>
  					</fieldset>

@@ -75,6 +75,12 @@ pageEncoding="UTF-8"%>
 								    <option class="form-control" value="6th Division Member">6th Division Member</option>
 								  </select>
 									<%-- <input type="text" value="<c:out value='${member.rank}' />" class="form-control" name="rank"> --%>
+									
+								<label>Has Tattoo:</label><br/>
+								  <select id="tattoo" name="tattoo">
+								  	<option class="form-control" value="Yes">Yes</option>
+								  	<option class="form-control" value="No">No</option>
+								  </select>
 								
 							</fieldset>
 							<br/><button type="submit" class="btn btn-light" data-mdb-ripple-color="dark">Save</button>

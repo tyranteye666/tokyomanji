@@ -46,6 +46,9 @@
 	 		<c:out value="${members.rank}" />
 	 	</td>
 	 	<td>
+	 		<c:out value="${members.tattoo}" />
+	 	</td>
+	 	<td>
 	 		<a href="ActionServlet/edit?name=<c:out value='${members.name}' />">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp; 
 	 		<a href="ActionServlet/delete?name=<c:out value='${members.name}' />">Delete</a>
  		</td>
