@@ -30,7 +30,7 @@ public class ActionServlet extends HttpServlet {
 	private static final String SELECT_MEMBER_BY_NAME = "select * from members where name =?";
 	private static final String SELECT_ALL_MEMBERS = "SELECT * FROM members";
 	private static final String DELETE_MEMBER_SQL = "delete from members where name = ?;";
-	private static final String UPDATE_MEMBER_SQL = "update members set name = ?,rank = ? where name = ?;";
+	private static final String UPDATE_MEMBER_SQL = "update members set name = ?,rank = ?, tattoo=? where name = ?;";
 		
 	protected Connection getConnection() {
 		Connection connection = null;
@@ -111,7 +111,8 @@ public class ActionServlet extends HttpServlet {
 			while (rs.next()) {
 				String name = rs.getString("name");
 				String rank = rs.getString("rank");
-				members.add(new Member(name, rank));
+				String tattoo = rs.getString("tattoo");
+				members.add(new Member(name, rank,tattoo));
 			}
 		} catch (SQLException e) {
 			printSQLException(e);
@@ -151,7 +152,8 @@ public class ActionServlet extends HttpServlet {
 			while (rs.next()) {
 				name = rs.getString("name");
 				String rank = rs.getString("rank");
-				existingMember = new Member(name, rank);
+				String tattoo = rs.getString("tattoo");
+				existingMember = new Member(name, rank, tattoo);
 			}
 		} catch (SQLException e) {
 			printSQLException(e);
@@ -169,13 +171,15 @@ public class ActionServlet extends HttpServlet {
 		String oriMemberName = request.getParameter("oriMemberName");
 		String name = request.getParameter("name");
 		String rank = request.getParameter("rank");
+		String tattoo = request.getParameter("tattoo");
 		System.out.println(name);
 		System.out.println(rank);
 		//database operation
 		try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_MEMBER_SQL);) {
 			statement.setString(1, name);
 			statement.setString(2, rank);
-			statement.setString(3, oriMemberName);
+			statement.setString(3, tattoo);
+			statement.setString(4, oriMemberName);
 			statement.executeUpdate();
 		}
 		response.sendRedirect("/tokyomanji/ActionServlet");

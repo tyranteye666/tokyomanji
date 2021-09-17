@@ -76,7 +76,7 @@ pageEncoding="UTF-8"%>
 								  </select>
 									<%-- <input type="text" value="<c:out value='${member.rank}' />" class="form-control" name="rank"> --%>
 									
-								<label>Has Tattoo:</label><br/>
+								<br/><label>Has Tattoo:</label><br/>
 								  <select id="tattoo" name="tattoo">
 								  	<option class="form-control" value="Yes">Yes</option>
 								  	<option class="form-control" value="No">No</option>

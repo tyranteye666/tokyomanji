@@ -30,6 +30,7 @@
  <tr>
  	<th>Member Name</th>
  	<th>Rank</th>
+ 	<th>Has Tattoo</th>
  	<th>Action</th>
  </tr>
  </thead>
