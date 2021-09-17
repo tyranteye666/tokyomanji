@@ -42,12 +42,14 @@ public class addServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		String n = request.getParameter("name");
 		String p = request.getParameter("rank");
+		String t = request.getParameter("tattoo");
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/toman", "root", "");
-			PreparedStatement ps = con.prepareStatement("insert into MEMBERS (name, rank) values(?,?)");
+			PreparedStatement ps = con.prepareStatement("insert into MEMBERS (name, rank,tattoo) values(?,?,?)");
 			ps.setString(1, n);
 			ps.setString(2, p);
+			ps.setString(3, t);
 			int i = ps.executeUpdate();
 			if (i > 0) {
 				out.print("Member successfully added!");
